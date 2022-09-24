@@ -10,18 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BudgetPlanTest {
 
-    BudgetPlan budgetPlan = new BudgetPlan(new BudgetRepo() {
-        @Override
-        public List<Budget> findAll() {
-
-            return Arrays.asList(
-                    new Budget(YearMonth.of(2022,8),3000),
-                    new Budget(YearMonth.of(2022,9),3000),
-                    new Budget(YearMonth.of(2022,10),620),
-                    new Budget(YearMonth.of(2022,11),300),
-                    new Budget(YearMonth.of(2023,1),31000));
-        }
-    });
+    BudgetPlan budgetPlan = new BudgetPlan(() -> Arrays.asList(
+            new Budget(YearMonth.of(2022,9),3000),
+            new Budget(YearMonth.of(2022,10),620),
+            new Budget(YearMonth.of(2022,11),300),
+            new Budget(YearMonth.of(2023,1),31000),
+            new Budget(YearMonth.of(2022,8),3000)));
 
     @Test
     public void query_start_to_end_smaller_than_0_days(){

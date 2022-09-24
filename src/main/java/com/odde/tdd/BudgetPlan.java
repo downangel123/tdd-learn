@@ -19,9 +19,8 @@ public class BudgetPlan {
         this.budgetRepo = new BudgetRepo() {
             @Override
             public List<Budget> findAll() {
-                return Arrays.asList(new Budget(YearMonth.of(2022,9),3000),
-                        new Budget(YearMonth.of(2022,10),2000),
-                        new Budget(YearMonth.of(2022,11),3000));
+                //查询
+                return null;
             }
         };
     }
@@ -50,12 +49,10 @@ public class BudgetPlan {
             return totalAmount;
         }
 
-        if(start.compareTo(end) > 0){
-            return totalAmount;
-        }
+
         Map<YearMonth,Long> budgets =  findAllMap();
 
-        while (start.isBefore(end) || start.isEqual(end)){
+        while (start.compareTo(end)<=0){
             YearMonth yearMonth = YearMonth.of(start.getYear(),start.getMonthValue());
             long dayAmount = budgets.getOrDefault(yearMonth,0L)/monthTotalDays(yearMonth);
 
