@@ -9,19 +9,16 @@ import java.util.*;
 
 public class BudgetPlan {
 
-    private BudgetRepo budgetRepo;
+    private final BudgetRepo budgetRepo;
 
     public BudgetPlan(BudgetRepo budgetRepo){
         this.budgetRepo = budgetRepo;
     }
 
     public BudgetPlan(){
-        this.budgetRepo = new BudgetRepo() {
-            @Override
-            public List<Budget> findAll() {
-                //查询
-                return null;
-            }
+        this.budgetRepo = () -> {
+            //查询逻辑
+            return null;
         };
     }
 
