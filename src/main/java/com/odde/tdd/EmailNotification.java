@@ -8,6 +8,10 @@ public class EmailNotification {
         mailService = new MailService();
     }
 
+    public EmailNotification(MailService mailService){
+        this.mailService = mailService;
+    }
+
     public void welcome(String email) {
         Email mail = new Email();
         mail.setFrom("zbcjackson@odd-e.com");

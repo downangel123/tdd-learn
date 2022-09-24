@@ -6,7 +6,7 @@ import java.util.Date;
 public class Now {
 
     public String getString() {
-        return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS")
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
                 .format(new Date());
     }
 
